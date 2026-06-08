@@ -81,7 +81,7 @@ class MicrosoftGraphTransport extends AbstractTransport
 
             $attachments[] = [
                 '@odata.type' => '#microsoft.graph.fileAttachment',
-                'name' => $contentId,
+                'name' => $attachment->getFilename() ?? $contentId,
                 'contentType' => implode('/', [$attachment->getMediaType(), $attachment->getMediaSubtype()]),
                 'contentBytes' => base64_encode($attachment->getBody()),
                 'contentId' => $contentId,
